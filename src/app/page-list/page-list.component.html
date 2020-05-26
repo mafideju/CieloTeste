@@ -1,1 +1,16 @@
-<p>page-list works!</p>
+<table mat-table class="mat-elevation-z8">
+  <thead mat-header-cell>
+    <tr>Titulo</tr>
+    <tr>Resumo</tr>
+  </thead>
+  <tbody mat-cell>
+    <tr *ngFor="let row of searchResults">
+      <td>
+        <a target="_blank" [href]="'https://en.wikipedia.org?curid=' + row.pageid">{{ row.title }}</a>
+      </td>
+      <td [innerHTML]="row.snippet" >
+        <!-- {{ row.snippet }} -->
+      </td>
+    </tr>
+  </tbody>
+</table>

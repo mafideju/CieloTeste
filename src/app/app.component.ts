@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WikiService } from './wikipedia.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cielo-teste';
+  searchResults = [];
+  constructor(private wiki: WikiService) {}
+
+  onSubmitForm(searchTerm: string) {
+    this.wiki
+      .onFormSubmitService(searchTerm)
+      .subscribe((response: any) => {
+        this.searchResults = response.query.search;
+      });
+  }
 }
