@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WikiService } from './wikipedia.service';
+import { WikiService } from './service/wikipedia.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +13,8 @@ export class AppComponent {
   onSubmitForm(searchTerm: string) {
     this.wiki
       .onFormSubmitService(searchTerm)
-      .subscribe((response: any) => {
-        this.searchResults = response.query.search;
+      .subscribe((response) => {
+        this.searchResults = response;
       });
   }
 }

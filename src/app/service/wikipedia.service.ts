@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { pluck } from 'rxjs/operators';
+
+import { WikiResponse } from '../models/wiki-response';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ export class WikiService {
   constructor(private http: HttpClient) { }
 
   onFormSubmitService(searchTerm: string) {
-    return this.http.get(`https://en.wikipedia.org/w/api.php`, {
+    return this.http.get<WikiResponse>(`https://en.wikipedia.org/w/api.php`, {
       params: {
         action: 'query',
         list: 'search',
@@ -18,7 +21,7 @@ export class WikiService {
         srsearch: searchTerm,
         origin: '*'
       }
-    });
+    }).pipe(pluck('query', 'search'));
   }
 }
 
