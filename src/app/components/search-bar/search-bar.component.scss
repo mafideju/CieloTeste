@@ -1,0 +1,11 @@
+.form-group {
+    width: 100%;
+
+    &__input {
+        color: white!important;
+
+        // &::placeholder {
+        //     text-align: center;
+        // }
+    }
+}

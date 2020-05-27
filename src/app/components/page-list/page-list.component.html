@@ -1,14 +1,16 @@
 <table mat-table class="mat-elevation-z8">
-  <thead mat-header-cell>
-    <tr>Titulo</tr>
-    <tr>Resumo</tr>
+  <thead mat-header-cell class="table-head">
+    <tr>
+      <th mat-header-cell>Titulo</th>
+      <th mat-header-cell>Resumo</th>
+    </tr>
   </thead>
-  <tbody mat-cell>
-    <tr *ngFor="let row of searchResults">
-      <td>
+  <tbody mat-cell class="table-body">
+    <tr *ngFor="let row of searchResults" class="table-row">
+      <td mat-cell>
         <a target="_blank" [href]="'https://en.wikipedia.org?curid=' + row.pageid">{{ row.title }}</a>
       </td>
-      <td [innerHTML]="row.snippet" >
+      <td [innerHTML]="row.snippet" mat-cell>
         <!-- {{ row.snippet }} -->
       </td>
     </tr>

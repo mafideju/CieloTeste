@@ -1,0 +1,35 @@
+.table-head {
+    background-color: #9c27b0;
+    color: white;
+
+    &>tr {
+        &>th {
+            padding: .5rem;
+        }
+    }
+}
+
+.table-body{
+    background-color: whitesmoke;
+    .table-row {
+        height: 5rem!important;
+        margin-bottom: 1rem;
+        font-weight: 200;
+        &>td {
+            &>a {
+                font-weight: 500;
+                text-decoration: none;
+
+                &:link, &:visited {
+                    color: #666666;
+                }
+                &:active {
+                    color: #9c27b0;
+                }
+                &:hover {
+                    color: #9c27b0;
+                }
+            }
+        }
+    }
+}

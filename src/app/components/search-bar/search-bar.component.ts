@@ -18,5 +18,4 @@ export class SearchBarComponent implements OnInit {
     event.preventDefault();
     this.submitForm.emit(this.searchTerm);
   }
-
 }
